@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
@@ -16,5 +16,98 @@
   <li>
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
-</ul>
+</ul> -->
 
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="active"><a (click)="showHome()">Home</a></li>
+        <li><a (click)="showCode()">Show Code</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+<div class="container" *ngIf="showCodeStatus == false">
+    
+<div class="container" *ngIf="submitted == false">
+  <h1>Median of Median Quick Sort Algorithm</h1>
+  <form>
+    <div class="form-group">
+      <label for="minRange">Min range for array</label>
+      <input type="number" class="form-control" [(ngModel)]="minRange" id="minRange" name="minRange" required>
+      <label for="minRange">{{ minRange }}</label>
+    </div>
+    <div class="form-group">
+      <label for="maxRange">Max range of array</label>
+      <input type="number" class="form-control" [(ngModel)]="maxRange" id="maxRange" name="maxRange" required>
+      <label for="maxRange">{{ maxRange }}</label>
+    </div>
+    <div class="form-group">
+      <label for="noEle">Number of elements in array</label>
+      <input type="number" class="form-control" [(ngModel)]="noEle" id="noEle" name="noEle" required>
+      <label for="noEle">{{ noEle }}</label>
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Kth smallest index to find</label>
+      <input type="number" class="form-control" [(ngModel)]="Kindex" id="Kindex" name="Kindex" required>
+      <label for="alterEgo">{{ Kindex }}</label>
+    </div>
+
+    <button type="button" class="btn btn-success" (click)="sortData()">Submit</button>
+
+  </form>
+</div>
+
+<div class="container" *ngIf="submitted == true">
+  <h1>Median of Median Quick Sort Algorithm</h1>
+  <form>
+    <div class="form-group">
+      <label for="minRange">Min range for array <br> </label>
+      <!-- <input type="number" class="form-control" [(ngModel)]="minRange" id="minRange" name="minRange" disabled> -->
+      <label for="minRange">{{ minRange }}</label>
+    </div>
+    <div class="form-group">
+      <label for="maxRange">Max range of array <br> </label>
+      <!-- <input type="number" class="form-control" [(ngModel)]="maxRange" id="maxRange" name="maxRange" disabled> -->
+      <label for="maxRange">{{ maxRange }}</label>
+    </div>
+    <div class="form-group">
+      <label for="noEle">Number of elements in array <br> </label>
+      <!-- <input type="number" class="form-control" [(ngModel)]="noEle" id="noEle" name="noEle" disabled> -->
+      <label for="noEle">{{ noEle }}</label>
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Kth smallest index to find <br> </label>
+      <!-- <input type="number" class="form-control" [(ngModel)]="Kindex" id="Kindex" name="Kindex" disabled> -->
+      <label for="alterEgo">{{ Kindex }}</label>
+    </div>
+    <div class="form-group">
+      <label for="alterEgo">Kth smallest number in array is <br> </label>
+      <label for="alterEgo">{{ resNumber }} <br> </label>
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Actual time taken to complete it is <br> </label>
+      <label for="alterEgo">{{ timeDiff }} Milliseconds </label>
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Generated array is <br> </label>
+      <label for="alterEgo" *ngFor="let item of numberList">{{ item }} <br> </label>
+    </div>
+    <!-- <button type="button" class="btn btn-success" (click)="sortData()">Submit</button> -->
+
+  </form>
+</div>
+</div>
+
+<div class="container" *ngIf="showCodeStatus == true">
+  <label>Program for the Median of Median sort algorithm</label>
+    <pre>
+        <code [innerHTML]="code"> {{ code }}</code>
+      </pre>
+      
+    </div>
